@@ -12,11 +12,11 @@ There are some G-Codes listed on the http://reprap.org/wiki/G-code that are not 
 # Introduction #
 A typical piece of G-code sent to a machine running RepRapFirmware might look like this (The meaning of these codes (and more) is explained below on this page.)
 
-G10 P0 S195 R175
+```` G10 P0 S195 R175
 T0
 G1 X100 Y100 Z0.3 F3000
 G1 X100.4 Y99.3 E0.23 F600
-...many 1000 more lines...
+...many 1000 more lines... ````
 -----
 
 ## G-Code Everywhere ##
@@ -55,10 +55,10 @@ This section explains the elements that make up a G-Code command.
 ## Comments ##
 G-Code comments begin at a semicolon, and end at the end of the line:
 
-T0 ; This is a comment
+```` T0 ; This is a comment
 G92 E0
 ''';So is this'''
-G28
+G28 ````
 Alternatively, comments can be enclosed in brackets, but they must start and end on the same line:
 
 G28 (here come the axes to be homed) X Y
@@ -103,10 +103,10 @@ Unfortunately, many gcode sender programs convert all characters to uppercase an
 
 Example: to add SSID MYROUTER with password ABCxyz;" 123 to the WiFi network list, use command:
 
-M587 S"MYROUTER" P"ABCxyz;"" 123"
+```` M587 S"MYROUTER" P"ABCxyz;"" 123" ````
 or if you can't send lowercase characters:
 
-M587 S"MYROUTER" P"ABC'X'Y'Z;"" 123"
+```` M587 S"MYROUTER" P"ABC'X'Y'Z;"" 123" ```` 
 ### Checking ###
 This is an optional feature that is seldom used as g-code files are normally printed form the on-board SD card.
 
