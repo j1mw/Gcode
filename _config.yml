@@ -1,4 +1,5 @@
 theme: minimal-mistakes-jekyll
+title: "My Awesome Site"
 
 defaults:
   # _docs
