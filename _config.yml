@@ -1,3 +1,5 @@
+theme: minimal-mistakes-jekyll
+
 defaults:
   # _docs
   - scope:
