@@ -1,5 +1,6 @@
 theme: jekyll-theme-leap-day
 title: "My Awesome Site"
+tags: testing
 
 defaults:
   # _docs
