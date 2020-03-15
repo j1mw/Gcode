@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Jekyll Tags on Github Pages
+title: Gcode
 description: blablabla
-tags: jekyll blog github-page
+tags: gcode
 ---
 
 # Gcode #
