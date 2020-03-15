@@ -1,3 +1,9 @@
-theme: jekyll-theme-minimal
+remote_theme: "mmistakes/minimal-mistakes@4.19.0"
+
 title: "My Awesome Site"
 description: "[A short description of your site's purpose]"
+
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-include-cache
