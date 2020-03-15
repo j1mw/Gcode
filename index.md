@@ -1,3 +1,10 @@
+---
+layout: post
+title: Jekyll Tags on Github Pages
+description: blablabla
+tags: jekyll blog github-page
+---
+
 # Gcode #
 This page describes the RepRapFirmware supported G-codes, originally based on the information from the [http://reprap.org/wiki/G-code RepRap wiki G-code page].
 
