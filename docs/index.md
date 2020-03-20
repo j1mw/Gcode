@@ -5,7 +5,7 @@ description: blablabla
 tags: gcode
 ---
 
-# Gcode #
+# Gcode updates #
 This page describes the RepRapFirmware supported G-codes, originally based on the information from the [http://reprap.org/wiki/G-code RepRap wiki G-code page].
 
 This page describes the RepRapFirmware supported G-codes, originally based on the information from the http://reprap.org/wiki/G-code.
