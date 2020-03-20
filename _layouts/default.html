@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<!--[if IE 8 ]>   <html class="lt-ie10 lt-ie9 ie8" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><![endif]-->
+<!--[if IE 9 ]>   <html class="lt-ie10 ie9" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html dir="ltr" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><!--<![endif]-->
+
+   <head>
+      
+      
+      <title>Gcode - Duet3D</title>
+
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <meta name="description" content="This page describes the RepRapFirmware supported G-codes, originally based on the information from the http://reprap.org/wiki/G-code." />
+      <meta name="title" content="Gcode - Duet3D" />
+      <meta name="keywords" content="Gcode, Dozuki" />
+
+         <meta name="robots" content="index, follow" />
+
+               <link id="canonical-link" rel="canonical" href="https://duet3d.dozuki.com/Wiki/Gcode" />
+      
+                  <link rel="alternate" hreflang="en" href="https://duet3d.dozuki.com/Wiki/Gcode" />
+      <link rel="alternate" hreflang="x-default" href="https://duet3d.dozuki.com/Wiki/Gcode" />
+
+            
+                                                                  <meta property="og:type" content="website" />
+                                                                     <meta property="og:image" content="https://d1ulmmr4d4i8j4.cloudfront.net/static/images/default_images/WikiNoImage_592x444.jpg" />
+                                                                     <meta property="og:description" content="This page describes the RepRapFirmware supported G-codes, originally based on the information from the [http://reprap.org/wiki/G-code RepRap wiki G-code page]." />
+                                                                     <meta property="og:url" content="https://duet3d.dozuki.com/Wiki/Gcode" />
+                                                                     <meta property="og:title" content="Gcode" />
+                                                                     <meta property="og:site_name" content="Duet3D" />
+                              
+            <meta name="verify-v1" content="jw37yaG9O4vmztqkH8xsZEeQtGHqzC3GZXfwk5xUCeM=" />
+
+            
+      
+                <!-- Aptrinsic Tag-->
+      <script type="text/javascript">
+         (function(n,t,a,e){var i="aptrinsic";n[i]=n[i]||function(){
+            (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;
+            var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
+            var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
+         })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-KS6GZPYJKDWJ-2");
+      </script>
+      
+               <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+               <link rel="stylesheet" type="text/css" media="print" href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Sales/dozuki/Shared-print-izgWd_Kjwj4VcZo-y2arTQ.css" />
+      
+      
+            
+            
+            
+      
+            
+         <link type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic"
+               rel="stylesheet"
+         />
+
+         <link type="text/css" href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/blue/guide-all-y25FCLf9UuDBPcwBOuU0Gg.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/ifixit/font-awesome-giGvg0XddkuKqOmX56z43Q.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/blue/module-all-nYuGLsiP3vuudsWugh8_iA.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/dozuki/prosemirror-all-8GrTl6Oa1VcMzevh0SezXQ.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/green/Wiki-common-zuSYdnSctoCFUr-tbyuRgQ.css"
+               rel="stylesheet"
+         />
+
+
+      <script>
+   </script>
+
+
+      
+
+                                 <link rel="stylesheet" type="text/css" href="https://d3g7ssc4oo3w7h.cloudfront.net/css/4140-sitewide-css-82963c6f367f19ccc0d8e2824bf4802785707d79" />
+               
+            
+                  
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      
+                           ga('create', 'UA-30506-11', 'auto', 'duet3dCustomer');
+
+         ga('duet3dCustomer.set', 'anonymizeIp', true);
+         ga('duet3dCustomer.set', 'dimension1', 'duet3d');         ga('duet3dCustomer.set', 'dimension2', 'true');         ga('duet3dCustomer.set', 'dimension3', 'true');
+               
+                  
+         </script>
+            <script>
+            window.addEventListener("load", function(event) {
+                     ga('duet3dCustomer.send', 'pageview');
+         
+               });
+   </script>
+                                          <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://d1ulmmr4d4i8j4.cloudfront.net/static/favicons/favicon-dozuki.ico" />
+   
+      <script defer src="//cdn.polyfill.io/v3/polyfill.min.js?features=default,Object.entries,Number.isInteger,IntersectionObserver,NodeList.prototype.forEach,WeakSet,WeakMap,fetch"></script>
+
+                  <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/translations/en-translations.js?4572"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/runtime-8ZzlNrwtrsdNMEenkyqWHw.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/commons-k_T1tz0Iu_ZOx2o5QDok1g.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/guide-constants-K0TkVaLhMMQ8bKmAjDcq_A.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/shared-constants-zkTU0ADipZQfHmLp-ad9kw.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/handlebars-MrEN0QSGJE5Ix4VuUXo2IQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/shared-hbs-templates-aB-BbcU_jM4o8aN49QDD5g.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/guide-hbs-templates-QTVzeaBESTRUvk84ejclXg.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/translations-x5Lx6k7tm34ZTQgagbZ8pQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/global-6mwy0kmjxbrDuBLKs3vrkw.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/guide-all-m3JDRPWuho6gva1-dm8XSA.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/lazysizes-PI3ipgKSJWcXSmQ5G1ZQtA.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/module-all-WQVnIp4yADXMU9km0hk5dQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/announcements-banner-_GG_zYzaICNw_iTWDMrOZQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/popup-modal-MttjSx_ZJw99KObMxm7xfQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/language-dropdown-button-zM1IMYgdb_dRj_mmX3xRhw.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/header-footer-DOe5zgVpO5Tdrf6DqUIvlA.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/name-complete-H9GpqMW9qaCLHORzZMQ1vg.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/table-of-contents-3Xo2WZ2Z9q3f8btWznzidQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/error-capture-79a3-4hIEbvk0GuVgcFayA.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/page-navigation-breadcrumbs-jraV4y9Y-l9EdfLUXEz60w.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/prosemirror-vendor-jQY0lotQrhLIzTOtsLiOMQ.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/prosemirror-comments-s1pLn8Q87XmQVkKi0Xsujw.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/wikipages-wiki-view-aLMbgswfF484kDfnA0i0Vg.js"></script>
+            <script defer type="text/javascript" src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/save-topic-7HCYRtu0OsAEqTVzGaTCAw.js"></script>
+      
+      
+         </head>
+
+   <body  class="page-background-gradient fullWidth full-page-background responsive user-wiki"                  data-reactroot>
+      <a href="#content" class="skip-to-content hide-until-css-loaded">Skip to main content</a>
+                           <div id="notifications" style="display:none;">
+   <div class="close"><i class="fa fa-times " ></i></div>
+   </div>
+               
+      
+      
+      <div id="background" class="hideUntilDarkMode">
+      <div class="react-component"
+      data-reactroot
+   data-name="Announcements"
+   data-props="[]">
+      </div>
+      <div class="react-component"
+      data-reactroot
+   data-name="PopupModal"
+   data-props="[]">
+      </div>
+         
+            
+            
+
+
+
+
+
+<header id="mainHeader">
+   <div class="header-container">
+      <a href="/">
+		{{ page.title }}
+               <h1 id="headerLogo" class="textLogo">Duet3D</h1>
+            </a>
+      <div class="search-container hidden-mobile-tablet">
+               <form action="/Search" method="get" class="ignoreCSRF">
+         <input type="text" name="query" id="searchForm" class="search-field" spellcheck=false>
+         <button class="search-submit fa fa-search"></button>
+      </form>
+      </div>
+            <nav class="site-nav">
+         <ul>               <li><a id="headerGuide" class="guide "
+       href="/Guide">Guides</a></li>
+   
+   
+   
+               <li><a id="headerContribute" class="contribute "
+       href="/Contribute">Contribute</a></li>
+   
+   
+   
+   </ul>
+      </nav>
+            <section class="action-buttons">
+         <div id="loggedInNav" class="login"  style="display:none" >
+                        
+            <a href="#" id="profileMenuToggle" class="username">
+                              <i class="fa fa-angle-down " ></i>               <span id="menuUsername">
+                                 </span>
+            </a>
+
+            <div class="dropdown-container" id="profileMenuContainer">
+               <ul id="profileMenu" class="header-dropdown">   
+      
+            <li><a href="/New">Create a Page</a></li>
+      <li><a id="viewProfile" href="/User">View Profile</a></li>
+      
+   
+      <li id="navLogout"><a href="/Logout">Logout</a></li>
+</ul>
+            </div>
+
+         </div>
+         <div id="loggedOutNav" class="login" >
+                           <a href="/Login" id="navLogin">Log In</a>
+                     </div>
+
+         
+         <a href="#menu" id="menu-button"><i class="fa fa-bars " ></i></a>
+         <a href="#search" id="searchDropdownToggle" class="search-button search-toggle"><i class="fa fa-search " ></i></a>
+      </section>
+   </div>
+   <div class="mobile-nav">
+      <div class="search-container">
+               <form action="/Search" method="get" class="ignoreCSRF">
+         <input type="text" name="query" id="searchForm" class="search-field" spellcheck=false>
+         <button class="search-submit fa fa-search"></button>
+      </form>
+      </div>
+      <h4>Site Navigation</h4>
+      <ul>               <li><a id="headerGuide" class="guide "
+       href="/Guide">Guides</a></li>
+   
+   
+   
+               <li><a id="headerContribute" class="contribute "
+       href="/Contribute">Contribute</a></li>
+   
+   
+   
+   </ul>
+                                 <h4>Your Account</h4>            <ul>
+               <li><a href="/Login/register">Join</a></li>               <li><a href="/Login">Log In</a></li>            </ul>
+                     <h4>Choose Language</h4>
+      <form method="POST" action="https://duet3d.dozuki.com/Login" >
+         <ul class="headerLanguageSelector">
+                        <li data-langid="en"
+          class="language-option">
+          <a href="#" class="emptyAnchor mobile-language-anchor">
+            <span class="language-iso-code selected">
+               EN            </span>
+            <span class="language-name">
+               English            </span>
+         </a>
+      </li>
+               </ul>
+         <input type="hidden" class='langidInput' name="langid" value="" />
+      </form>
+   </div>
+   <div class="clearer"></div>
+</header>
+
+      
+         
+   <div id="page" class="hide-until-css-loaded invisible">
+               
+         
+                     <div id="page-sidebar">
+               <div id="sidebar-wiki-toc" class="sticky ">
+      <div class="toc-title"><a href="#main">Gcode</a></div>
+      <div class="toc"><div class="header">Contents</div>
+<ul><li><a href="#Section_Introduction" class="muted">Introduction</a><ul><li><a href="#Section_G_Code_Everywhere" class="muted">G-Code Everywhere</a></li></ul></li><li><a href="#Section_G_Code_Structure" class="muted">G-Code Structure</a><ul><li><a href="#Section_Comments" class="muted">Comments</a></li><li><a href="#Section_Fields" class="muted">Fields</a><ul><li><a href="#Section_Case_sensitivity" class="muted">Case sensitivity</a></li><li><a href="#Section_Quoted_strings" class="muted">Quoted strings</a></li><li><a href="#Section_Checking" class="muted">Checking</a></li></ul></li><li><a href="#Section_Conditional_execution_loops_and_other_command_words" class="muted">Conditional execution, loops, and other command words</a></li><li><a href="#Section_Multiple_commands_on_a_single_line" class="muted">Multiple commands on a single line</a></li><li><a href="#Section_Buffering" class="muted">Buffering</a></li></ul></li><li><a href="#Section_G_commands" class="muted">G-commands</a><ul><li><a href="#Section_G0_G1_Move" class="muted">G0 &amp; G1: Move</a></li><li><a href="#Section_G2_G3_Controlled_Arc_Move" class="muted">G2 &amp; G3: Controlled Arc Move</a></li><li><a href="#Section_G4_Dwell" class="muted">G4: Dwell</a></li><li><a href="#Section_G10_Tool_Offset_and_Temperature_Setting" class="muted">G10: Tool Offset and Temperature Setting</a></li><li><a href="#Section_G10_Set_workplace_coordinate_offset_or_tool_offset" class="muted">G10: Set workplace coordinate offset or tool offset</a></li><li><a href="#Section_G10_Retract" class="muted">G10: Retract</a></li><li><a href="#Section_G11_Unretract" class="muted">G11: Unretract</a></li><li><a href="#Section_G17_Select_XY_plane_for_arc_moves" class="muted">G17: Select XY plane for arc moves</a></li><li><a href="#Section_G20_Set_Units_to_Inches" class="muted">G20: Set Units to Inches</a></li><li><a href="#Section_G21_Set_Units_to_Millimeters" class="muted">G21: Set Units to Millimeters</a></li><li><a href="#Section_G28_Home" class="muted">G28: Home</a></li><li><a href="#Section_G29_Mesh_bed_probe" class="muted">G29: Mesh bed probe</a></li><li><a href="#Section_G30_Single_Z_Probe" class="muted">G30: Single Z-Probe</a></li><li><a href="#Section_G31_Set_or_Report_Current_Probe_status" class="muted">G31: Set or Report Current Probe status</a></li><li><a href="#Section_G32_Probe_Z_and_calculate_Z_plane" class="muted">G32: Probe Z and calculate Z plane</a></li><li><a href="#Section_G38_2_to_G38_5_Straight_Probe" class="muted">G38.2 to G38.5: Straight Probe</a></li><li><a href="#Section_G53_Use_absolute_coordinates" class="muted">G53 Use absolute coordinates</a></li><li><a href="#Section_G54_to_G59_3_Select_coordinate_system" class="muted">G54 to G59.3: Select coordinate system</a></li><li><a href="#Section_G60_Save_current_position_to_slot" class="muted">G60: Save current position to slot</a></li><li><a href="#Section_G90_Set_to_Absolute_Positioning" class="muted">G90: Set to Absolute Positioning</a></li><li><a href="#Section_G91_Set_to_Relative_Positioning" class="muted">G91: Set to Relative Positioning</a></li><li><a href="#Section_G92_Set_Position" class="muted">G92: Set Position</a></li></ul></li><li><a href="#Section_M_commands" class="muted">M-commands</a><ul><li><a href="#Section_M0_Stop_or_Unconditional_stop" class="muted">M0: Stop or Unconditional stop</a></li><li><a href="#Section_M1_Sleep_or_Conditional_stop" class="muted">M1: Sleep or Conditional stop</a></li><li><a href="#Section_M3_Spindle_On_Clockwise_CNC_specific" class="muted">M3: Spindle On, Clockwise (CNC specific)</a></li><li><a href="#Section_M4_Spindle_On_Counterclockwise_CNC_specific" class="muted">M4: Spindle On, Counterclockwise (CNC specific)</a></li><li><a href="#Section_M5_Spindle_Off_CNC_specific" class="muted">M5: Spindle Off (CNC specific)</a></li><li><a href="#Section_M18_Disable_all_stepper_motors" class="muted">M18: Disable all stepper motors</a></li><li><a href="#Section_M20_List_SD_card" class="muted">M20: List SD card</a></li><li><a href="#Section_M21_Initialize_SD_card" class="muted">M21: Initialize SD card</a></li><li><a href="#Section_M22_Release_SD_card" class="muted">M22: Release SD card</a></li><li><a href="#Section_M23_Select_SD_file" class="muted">M23: Select SD file</a></li><li><a href="#Section_M24_Start_resume_SD_print" class="muted">M24: Start/resume SD print</a></li><li><a href="#Section_M25_Pause_SD_print" class="muted">M25: Pause SD print</a></li><li><a href="#Section_M26_Set_SD_position" class="muted">M26: Set SD position</a></li><li><a href="#Section_M27_Report_SD_print_status" class="muted">M27: Report SD print status</a></li><li><a href="#Section_M28_Begin_write_to_SD_card" class="muted">M28: Begin write to SD card</a></li><li><a href="#Section_M29_Stop_writing_to_SD_card" class="muted">M29: Stop writing to SD card</a></li><li><a href="#Section_M30_Delete_a_file_on_the_SD_card" class="muted">M30: Delete a file on the SD card</a></li><li><a href="#Section_M32_Select_file_and_start_SD_print" class="muted">M32: Select file and start SD print</a></li><li><a href="#Section_M36_Return_file_information" class="muted">M36: Return file information</a></li><li><a href="#Section_M37_Simulation_mode" class="muted">M37: Simulation mode</a></li><li><a href="#Section_M38_Compute_SHA1_hash_of_target_file" class="muted">M38: Compute SHA1 hash of target file</a></li><li><a href="#Section_M39_Report_SD_card_information" class="muted">M39: Report SD card information</a></li><li><a href="#Section_M42_Switch_I_O_pin" class="muted">M42: Switch I/O pin</a></li><li><a href="#Section_M80_ATX_Power_On" class="muted">M80: ATX Power On</a></li><li><a href="#Section_M81_ATX_Power_Off" class="muted">M81: ATX Power Off</a></li><li><a href="#Section_M82_Set_extruder_to_absolute_mode" class="muted">M82: Set extruder to absolute mode</a></li><li><a href="#Section_M83_Set_extruder_to_relative_mode" class="muted">M83: Set extruder to relative mode</a></li><li><a href="#Section_M84_Stop_idle_hold" class="muted">M84: Stop idle hold</a></li><li><a href="#Section_M92_Set_axis_steps_per_unit" class="muted">M92: Set axis steps per unit</a></li><li><a href="#Section_M98_Call_Macro_Subprogram" class="muted">M98: Call Macro/Subprogram</a></li><li><a href="#Section_M99_Return_from_Macro_Subprogram" class="muted">M99: Return from Macro/Subprogram</a></li><li><a href="#Section_M104_Set_Extruder_Temperature" class="muted">M104: Set Extruder Temperature</a></li><li><a href="#Section_M105_Get_Extruder_Temperature" class="muted">M105: Get Extruder Temperature</a></li><li><a href="#Section_M106_Fan_On" class="muted">M106: Fan On</a></li><li><a href="#Section_M107_Fan_Off" class="muted">M107: Fan Off</a></li><li><a href="#Section_M108_Cancel_Heating" class="muted">M108: Cancel Heating</a></li><li><a href="#Section_M109_Set_Extruder_Temperature_and_Wait" class="muted">M109: Set Extruder Temperature and Wait</a></li><li><a href="#Section_M110_Set_Current_Line_Number" class="muted">M110: Set Current Line Number</a></li><li><a href="#Section_M111_Set_Debug_Level" class="muted">M111: Set Debug Level</a></li><li><a href="#Section_M112_Emergency_Stop" class="muted">M112: Emergency Stop</a></li><li><a href="#Section_M114_Get_Current_Position" class="muted">M114: Get Current Position</a></li><li><a href="#Section_M115_Get_Firmware_Version_and_Capabilities" class="muted">M115: Get Firmware Version and Capabilities</a></li><li><a href="#Section_M116_Wait" class="muted">M116: Wait</a></li><li><a href="#Section_M117_Display_Message" class="muted">M117: Display Message</a></li><li><a href="#Section_M118_Send_Message_to_Specific_Target" class="muted">M118: Send Message to Specific Target</a></li><li><a href="#Section_M119_Get_Endstop_Status" class="muted">M119: Get Endstop Status</a></li><li><a href="#Section_M120_Push" class="muted">M120: Push</a></li><li><a href="#Section_M121_Pop" class="muted">M121: Pop</a></li><li><a href="#Section_M122_Diagnose" class="muted">M122: Diagnose</a></li><li><a href="#Section_M135_Set_PID_sample_interval" class="muted">M135: Set PID sample interval</a></li><li><a href="#Section_M140_Set_Bed_Temperature_Fast" class="muted">M140: Set Bed Temperature (Fast)</a></li><li><a href="#Section_M141_Set_Chamber_Temperature_Fast" class="muted">M141: Set Chamber Temperature (Fast)</a></li><li><a href="#Section_M143_Maximum_heater_temperature" class="muted">M143: Maximum heater temperature</a><ul><li><a href="#Section_M143_in_RRF_3_01RC1_and_earlier" class="muted">M143 in RRF 3.01RC1 and earlier</a></li><li><a href="#Section_M143_in_RRF_3_01RC2_and_later" class="muted">M143 in RRF 3.01RC2 and later</a></li></ul></li><li><a href="#Section_M144_Bed_Standby" class="muted">M144: Bed Standby</a></li><li><a href="#Section_M150_Set_LED_colours" class="muted">M150: Set LED colours</a></li><li><a href="#Section_M190_Wait_for_bed_temperature_to_reach_target_temp" class="muted">M190: Wait for bed temperature to reach target temp</a></li><li><a href="#Section_M191_Wait_for_chamber_temperature_to_reach_target_temp" class="muted">M191: Wait for chamber temperature to reach target temp</a></li><li><a href="#Section_M200_Set_filament_diameter" class="muted">M200: Set filament diameter</a></li><li><a href="#Section_M201_Set_max_acceleration" class="muted">M201: Set max acceleration</a></li><li><a href="#Section_M203_Set_maximum_feedrate" class="muted">M203: Set maximum feedrate</a></li><li><a href="#Section_M204_Set_printing_and_travel_accelerations" class="muted">M204: Set printing and travel accelerations</a></li><li><a href="#Section_M205_Set_max_instantaneous_speed_change_in_mm_sec" class="muted">M205: Set max instantaneous speed change in mm/sec</a></li><li><a href="#Section_M206_Offset_axes" class="muted">M206: Offset axes</a></li><li><a href="#Section_M207_Set_retract_length" class="muted">M207: Set retract length</a></li><li><a href="#Section_M208_Set_axis_max_travel" class="muted">M208: Set axis max travel</a></li><li><a href="#Section_M220_Set_speed_factor_override_percentage" class="muted">M220: Set speed factor override percentage</a></li><li><a href="#Section_M221_Set_extrude_factor_override_percentage" class="muted">M221: Set extrude factor override percentage</a></li><li><a href="#Section_M226_Gcode_Initiated_Pause" class="muted">M226: Gcode Initiated Pause</a></li><li><a href="#Section_M260_i2c_Send_and_or_request_Data" class="muted">M260: i2c Send and/or request Data</a></li><li><a href="#Section_M261_i2c_Request_Data" class="muted">M261: i2c Request Data</a></li><li><a href="#Section_M280_Set_servo_position" class="muted">M280: Set servo position</a></li><li><a href="#Section_M290_Baby_stepping" class="muted">M290: Baby stepping</a></li><li><a href="#Section_M291_Display_message_and_optionally_wait_for_response" class="muted">M291: Display message and optionally wait for response</a></li><li><a href="#Section_M292_Acknowledge_message" class="muted">M292: Acknowledge message</a></li><li><a href="#Section_M300_Play_beep_sound" class="muted">M300: Play beep sound</a></li><li><a href="#Section_M301_Set_PID_parameters" class="muted">M301: Set PID parameters</a></li><li><a href="#Section_M302_Allow_cold_extrudes" class="muted">M302: Allow cold extrudes</a></li><li><a href="#Section_M303_Run_heater_tuning" class="muted">M303: Run heater tuning</a></li><li><a href="#Section_M304_Set_PID_parameters_Bed" class="muted">M304: Set PID parameters - Bed</a></li><li><a href="#Section_M305_Set_temperature_sensor_parameters" class="muted">M305: Set temperature sensor parameters</a></li><li><a href="#Section_M307_Set_or_report_heating_process_parameters" class="muted">M307: Set or report heating process parameters</a></li><li><a href="#Section_M308_Set_or_report_sensor_parameters" class="muted">M308: Set or report sensor parameters</a></li><li><a href="#Section_M350_Set_microstepping_mode" class="muted">M350: Set microstepping mode</a></li><li><a href="#Section_M374_Save_height_map" class="muted">M374: Save height map</a></li><li><a href="#Section_M375_Load_height_map" class="muted">M375: Load height map</a></li><li><a href="#Section_M376_Set_bed_compensation_taper" class="muted">M376: Set bed compensation taper</a></li><li><a href="#Section_M400_Wait_for_current_moves_to_finish" class="muted">M400: Wait for current moves to finish</a></li><li><a href="#Section_M401_Deploy_z_probe" class="muted">M401: Deploy z-probe</a></li><li><a href="#Section_M402_Retract_z_probe" class="muted">M402: Retract z-probe</a></li><li><a href="#Section_M404_Filament_width_and_nozzle_diameter" class="muted">M404: Filament width and nozzle diameter</a></li><li><a href="#Section_M408_Report_JSON_style_response" class="muted">M408: Report JSON-style response</a></li><li><a href="#Section_M409_Query_object_model" class="muted">M409: Query object model</a></li><li><a href="#Section_M450_Report_Printer_Mode" class="muted">M450: Report Printer Mode</a></li><li><a href="#Section_M451_Select_FFF_Printer_Mode" class="muted">M451: Select FFF Printer Mode</a></li><li><a href="#Section_M452_Select_Laser_Printer_Mode" class="muted">M452: Select Laser Printer Mode</a></li><li><a href="#Section_M453_Select_CNC_Printer_Mode" class="muted">M453: Select CNC Printer Mode</a></li><li><a href="#Section_M470_Create_Directory_on_SD_Card" class="muted">M470: Create Directory on SD-Card</a></li><li><a href="#Section_M471_Rename_File_Directory_on_SD_Card" class="muted">M471: Rename File/Directory on SD-Card</a></li><li><a href="#Section_M500_Store_parameters" class="muted">M500: Store parameters</a></li><li><a href="#Section_M501_Read_stored_parameters" class="muted">M501: Read stored parameters</a></li><li><a href="#Section_M502_Revert_stored_parameters" class="muted">M502: Revert stored parameters</a></li><li><a href="#Section_M503_Print_settings" class="muted">M503: Print settings</a></li><li><a href="#Section_M505_Set_configuration_file_folder" class="muted">M505: Set configuration file folder</a></li><li><a href="#Section_M540_Set_MAC_address" class="muted">M540: Set MAC address</a></li><li><a href="#Section_M550_Set_Name" class="muted">M550: Set Name</a></li><li><a href="#Section_M551_Set_Password" class="muted">M551: Set Password</a></li><li><a href="#Section_M552_Set_IP_address_enable_disable_network_interface" class="muted">M552: Set IP address, enable/disable network interface</a></li><li><a href="#Section_M553_Set_Netmask" class="muted">M553: Set Netmask</a></li><li><a href="#Section_M554_Set_Gateway" class="muted">M554: Set Gateway</a></li><li><a href="#Section_M555_Set_compatibility" class="muted">M555: Set compatibility</a></li><li><a href="#Section_M556_Axis_skew_compensation" class="muted">M556: Axis skew compensation</a></li><li><a href="#Section_M557_Set_Z_probe_point_or_define_probing_grid" class="muted">M557: Set Z probe point or define probing grid</a></li><li><a href="#Section_M558_Set_Z_probe_type" class="muted">M558: Set Z probe type</a><ul><li><a href="#Section_M558_in_RepRapFirmware_2_x_and_earlier" class="muted">M558 in RepRapFirmware 2.x and earlier</a></li><li><a href="#Section_M558_in_RepRapFirmware_Num_3" class="muted">M558 in RepRapFirmware 3</a></li></ul></li><li><a href="#Section_M559_Upload_configuration_file" class="muted">M559: Upload configuration file</a></li><li><a href="#Section_M560_Upload_web_page_file" class="muted">M560: Upload web page file</a></li><li><a href="#Section_M561_Set_Identity_Transform" class="muted">M561: Set Identity Transform</a></li><li><a href="#Section_M562_Reset_temperature_fault" class="muted">M562: Reset temperature fault</a></li><li><a href="#Section_M563_Define_or_remove_a_tool" class="muted">M563: Define or remove a tool</a></li><li><a href="#Section_M564_Limit_axes" class="muted">M564: Limit axes</a></li><li><a href="#Section_M566_Set_allowable_instantaneous_speed_change" class="muted">M566: Set allowable instantaneous speed change</a></li><li><a href="#Section_M567_Set_tool_mix_ratios" class="muted">M567: Set tool mix ratios</a></li><li><a href="#Section_M568_Turn_off_on_tool_mix_ratios" class="muted">M568: Turn off/on tool mix ratios</a></li><li><a href="#Section_M569_Set_motor_driver_direction_enable_polarity_and_step_pulse_timing" class="muted">M569: Set motor driver direction, enable polarity and step pulse timing</a></li><li><a href="#Section_M570_Configure_heater_fault_detection" class="muted">M570: Configure heater fault detection</a></li><li><a href="#Section_M571_Set_output_on_extrude" class="muted">M571: Set output on extrude</a></li><li><a href="#Section_M572_Set_or_report_extruder_pressure_advance" class="muted">M572: Set or report extruder pressure advance</a></li><li><a href="#Section_M573_Report_heater_PWM" class="muted">M573: Report heater PWM</a></li><li><a href="#Section_M574_Set_endstop_configuration" class="muted">M574: Set endstop configuration</a><ul><li><a href="#Section_M574_RepRapFirmware_2_x_and_earlier" class="muted">M574 - RepRapFirmware 2.x and earlier</a></li><li><a href="#Section_M574_RepRapFirmware_Num_3" class="muted">M574 - RepRapFirmware 3</a></li></ul></li><li><a href="#Section_M575_Set_serial_comms_parameters" class="muted">M575: Set serial comms parameters</a></li><li><a href="#Section_M577_Wait_until_endstop_is_triggered" class="muted">M577: Wait until endstop is triggered</a><ul><li><a href="#Section_M577_RepRapFirmware_2_x_and_earlier" class="muted">M577 - RepRapFirmware 2.x and earlier</a></li><li><a href="#Section_M577_RepRapFirmware_3_0_up_to_3_01RC1" class="muted">M577 - RepRapFirmware 3.0 up to 3.01RC1</a></li><li><a href="#Section_M577_RepRapFirmware_3_01RC2_and_later" class="muted">M577 - RepRapFirmware 3.01RC2 and later</a></li></ul></li><li><a href="#Section_M578_Fire_inkjet_bits" class="muted">M578: Fire inkjet bits</a></li><li><a href="#Section_M579_Scale_Cartesian_axes" class="muted">M579: Scale Cartesian axes</a></li><li><a href="#Section_M580_Select_Roland" class="muted">M580: Select Roland</a></li><li><a href="#Section_M581_Configure_external_trigger" class="muted">M581: Configure external trigger</a><ul><li><a href="#Section_M581_RepRapFirmware_2_x_and_earlier" class="muted">M581 - RepRapFirmware 2.x and earlier</a></li><li><a href="#Section_M581_RepRapFirmware_3_0_to_3_01RC1_but_not_3_01RC2_and_later" class="muted">M581 - RepRapFirmware 3.0 to 3.01RC1 (but not 3.01RC2 and later)</a></li><li><a href="#Section_M581_RepRapFirmware_3_01RC2_and_later" class="muted">M581 - RepRapFirmware 3.01RC2 and later</a></li></ul></li><li><a href="#Section_M582_Check_external_trigger" class="muted">M582: Check external trigger</a></li><li><a href="#Section_M584_Set_drive_mapping" class="muted">M584: Set drive mapping</a></li><li><a href="#Section_M585_Probe_Tool" class="muted">M585: Probe Tool</a></li><li><a href="#Section_M586_Configure_network_protocols" class="muted">M586: Configure network protocols</a></li><li><a href="#Section_M587_Add_WiFi_host_network_to_remembered_list_or_list_remembered_networks" class="muted">M587: Add WiFi host network to remembered list, or list remembered networks</a></li><li><a href="#Section_M588_Forget_WiFi_host_network" class="muted">M588: Forget WiFi host network</a></li><li><a href="#Section_M589_Configure_access_point_parameters" class="muted">M589: Configure access point parameters</a></li><li><a href="#Section_M591_Configure_filament_sensing" class="muted">M591: Configure filament sensing</a><ul><li><a href="#Section_M591_RepRapFirmware_Num_3" class="muted">M591 - RepRapFirmware 3</a></li><li><a href="#Section_M591_RepRapFirmware_1_21_to_2_x" class="muted">M591 - RepRapFirmware 1.21 to 2.x</a></li><li><a href="#Section_M591_RepRapFirmware_1_20_and_earlier" class="muted">M591 - RepRapFirmware 1.20 and earlier</a></li></ul></li><li><a href="#Section_M592_Configure_nonlinear_extrusion" class="muted">M592: Configure nonlinear extrusion</a></li><li><a href="#Section_M593_Configure_Dynamic_Acceleration_Adjustment" class="muted">M593: Configure Dynamic Acceleration Adjustment</a></li><li><a href="#Section_M594_Enter_Leave_Height_Following_mode" class="muted">M594: Enter/Leave Height Following mode</a></li><li><a href="#Section_M600_Filament_change_pause" class="muted">M600: Filament change pause</a></li><li><a href="#Section_M650_Set_peel_move_parameters" class="muted">M650: Set peel move parameters</a></li><li><a href="#Section_M651_Execute_peel_move" class="muted">M651: Execute peel move</a></li><li><a href="#Section_M665_Set_delta_configuration" class="muted">M665: Set delta configuration</a></li><li><a href="#Section_M666_Set_delta_endstop_adjustment" class="muted">M666: Set delta endstop adjustment</a></li><li><a href="#Section_M667_Select_CoreXY_or_related_mode" class="muted">M667: Select CoreXY or related mode</a></li><li><a href="#Section_M669_Set_kinematics_type_and_kinematics_parameters" class="muted">M669: Set kinematics type and kinematics parameters</a><ul><li><a href="#Section_Parameters_for_Cartesian_CoreXY_CoreXZ_CoreXYU_CoreXYUV_MarkForged_kinematics_RRF_2_03_and_later_only" class="muted">Parameters for Cartesian/CoreXY/CoreXZ/CoreXYU/CoreXYUV/MarkForged kinematics (RRF 2.03 and later only)</a></li><li><a href="#Section_Parameters_for_Linear_Delta_kinematics_RRF_2_03_and_later_only" class="muted">Parameters for Linear Delta kinematics (RRF 2.03 and later only)</a></li><li><a href="#Section_Parameters_for_serial_SCARA_kinematics" class="muted">Parameters for serial SCARA kinematics</a></li><li><a href="#Section_Parameters_for_Polar_kinematics" class="muted">Parameters for Polar kinematics</a></li></ul></li><li><a href="#Section_M670_Set_IO_port_bit_mapping" class="muted">M670: Set IO port bit mapping</a></li><li><a href="#Section_M671_Define_positions_of_Z_leadscrews_or_bed_levelling_screws" class="muted">M671: Define positions of Z leadscrews or bed levelling screws</a></li><li><a href="#Section_M672_Program_Z_probe" class="muted">M672: Program Z probe</a></li><li><a href="#Section_M673_Align_plane_on_rotary_axis" class="muted">M673: Align plane on rotary axis</a></li><li><a href="#Section_M674_Set_Z_to_center_point" class="muted">M674: Set Z to center point</a></li><li><a href="#Section_M675_Find_center_of_cavity" class="muted">M675: Find center of cavity</a></li><li><a href="#Section_M701_Load_filament" class="muted">M701: Load filament</a></li><li><a href="#Section_M702_Unload_filament" class="muted">M702: Unload filament</a></li><li><a href="#Section_M703_Configure_filament" class="muted">M703: Configure filament</a></li><li><a href="#Section_M750_Enable_3D_scanner_extension" class="muted">M750: Enable 3D scanner extension</a></li><li><a href="#Section_M751_Register_3D_scanner_extension_over_USB" class="muted">M751: Register 3D scanner extension over USB</a></li><li><a href="#Section_M752_Start_3D_scan" class="muted">M752: Start 3D scan</a></li><li><a href="#Section_M753_Cancel_current_3D_scanner_action" class="muted">M753: Cancel current 3D scanner action</a></li><li><a href="#Section_M754_Calibrate_3D_scanner" class="muted">M754: Calibrate 3D scanner</a></li><li><a href="#Section_M755_Set_alignment_mode_for_3D_scanner" class="muted">M755: Set alignment mode for 3D scanner</a></li><li><a href="#Section_M756_Shutdown_3D_scanner" class="muted">M756: Shutdown 3D scanner</a></li><li><a href="#Section_M851_Set_Z_Probe_Offset_Marlin_Compatibility" class="muted">M851: Set Z-Probe Offset (Marlin Compatibility)</a></li><li><a href="#Section_M905_Set_local_date_and_time" class="muted">M905: Set local date and time</a></li><li><a href="#Section_M906_Set_motor_currents" class="muted">M906: Set motor currents</a></li><li><a href="#Section_M911_Configure_auto_save_on_loss_of_power" class="muted">M911: Configure auto save on loss of power</a></li><li><a href="#Section_M912_Set_electronics_temperature_monitor_adjustment" class="muted">M912: Set electronics temperature monitor adjustment</a></li><li><a href="#Section_M913_Set_motor_percentage_of_normal_current" class="muted">M913: Set motor percentage of normal current</a></li><li><a href="#Section_M914_Set_Get_Expansion_Voltage_Level_Translator" class="muted">M914: Set/Get Expansion Voltage Level Translator</a></li><li><a href="#Section_M915_Configure_motor_stall_detection" class="muted">M915: Configure motor stall detection</a></li><li><a href="#Section_M916_Resume_print_after_power_failure" class="muted">M916: Resume print after power failure</a></li><li><a href="#Section_M917_Set_motor_standstill_current_reduction" class="muted">M917: Set motor standstill current reduction</a></li><li><a href="#Section_M918_Configure_direct_connect_display" class="muted">M918: Configure direct-connect display</a></li><li><a href="#Section_M929_Start_stop_event_logging_to_SD_card" class="muted">M929: Start/stop event logging to SD card</a></li><li><a href="#Section_M950_Create_heater_fan_or_GPIO_servo_pin" class="muted">M950: Create heater, fan or GPIO/servo pin</a></li><li><a href="#Section_M951_Set_height_following_mode_parameters" class="muted">M951: Set height following mode parameters</a></li><li><a href="#Section_M952_Set_CAN_FD_expansion_board_address_and_or_normal_data_rate" class="muted">M952: Set CAN-FD expansion board address and/or normal data rate</a></li><li><a href="#Section_M953_Set_CAN_FD_bus_fast_data_rate" class="muted">M953: Set CAN-FD bus fast data rate</a></li><li><a href="#Section_M997_Perform_in_application_firmware_update" class="muted">M997: Perform in-application firmware update</a></li><li><a href="#Section_M998_Request_resend_of_line" class="muted">M998: Request resend of line</a></li><li><a href="#Section_M999_Restart" class="muted">M999: Restart</a></li></ul></li><li><a href="#Section_T_Select_Tool" class="muted">T: Select Tool</a></li><li><a href="#Section_G_Code_Background_Information" class="muted">G-Code Background Information</a><ul><li><a href="#Section_Replies_from_the_RepRap_machine_to_the_host_computer" class="muted">Replies from the RepRap machine to the host computer</a></li><li><a href="#Section_Slicer_Start_and_End_G_Codes" class="muted">Slicer Start and End G-Codes</a></li></ul></li></ul></div>   </div>            </div>
+               
+      <div id="main" >
+
+         
+         
+         <div id="mainBody"
+                           itemscope itemtype="http://schema.org/WebPage"
+                     >
+            
+            <!-- MAIN BODY -->
+            
+                        
+                                       <div id="bodyTop" class="fullWidth clearfix">
+               
+
+<div class="page-navigation-container js-page-navigation row
+   ">
+   <div class="column full-width js-content-dropdown-container content-dropdown-default">
+      <ul class="row page-navigation-bar">
+                                    <li class="page-navigation-link
+ back-link column  ">
+         <a  href="/c/Gcodes"        class=""
+                    >
+                     <i  class="svg-icon"   style="display: inline-block; width: 16px; height: 16px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="20" y1="12" x2="4" y2="12"/>
+    <polyline points="10 18 4 12 10 6"/>
+</svg></i><span class="visible-mobile-tablet-inline">Back</span><span class="hidden-mobile-tablet">Gcodes</span>
+               </a>
+   </li>
+                                          <li class="page-navigation-link
+   ">
+         <a  href="/Wiki/Edit/Gcode"        class=""
+               rel="nofollow"
+                      id="edit-nav-link"
+              >
+                     <span class="hidden-mobile">Edit</span><i  class="svg-icon" alt="Edit" title="Edit" style="display: inline-block; width: 24px; height: 24px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20,14.66V20a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4H9.34"/>
+    <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/>
+</svg></i>               </a>
+   </li>
+                              <li class="page-navigation-link
+   ">
+         <a        class="js-content-dropdown-toggle content-dropdown-toggle"
+                    >
+                     <span class="hidden-mobile">Options</span><i  class="svg-icon" alt="Options" title="Options" style="display: inline-block; width: 24px; height: 24px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="5" r="1" fill="currentColor"/>
+    <circle cx="12" cy="12" r="1" fill="currentColor"/>
+    <circle cx="12" cy="19" r="1" fill="currentColor"/>
+</svg></i>               </a>
+   </li>
+               </ul>
+               <ul class="content-dropdown-list">
+                           <li class="page-navigation-link
+   ">
+         <a  href="/Wiki/History/Gcode"        class=""
+               rel="nofollow"
+                      id="history-nav-link"
+              >
+                     <i class="fa fa-history " ></i>            History               </a>
+   </li>
+                     </ul>
+         </div>
+</div>
+
+                              </div>
+            
+            <div class="statuses">
+</div>
+
+                           <div id="banner"><div class="statuses">
+</div></div>
+                                                   <div id="topContent">
+               
+<div id="mobile-wiki-toc" class="hidden-desktop">
+      <div class="react-component"
+      data-reactroot
+   data-name="Toc"
+   data-props="[]">
+      </div>
+</div>
+               </div>
+            
+                        
+            
+                        <div id="contentFloat">
+               <div id="content">
+                                 
+                                        
+      <div class="container articleContainer wiki">
+         
+
+                                                                           <h1 class="pageTitle wikiTitle originalText bordered">
+         Gcode   </h1>
+
+{{ content }}
+
+
+</div>
+         </div>
+            </div>
+   </div>
+   
+      </div>
+   </div>
+</div>
+                                                </div>
+                                                       <script type="text/javascript">
+   (function() {
+      var headings = document.querySelectorAll('#mainBody [id^="Section_"]');
+      var pageSidebar = document.getElementById('page-sidebar');
+      if (pageSidebar && headings.length <= 1) {
+         // Must remove elements this way to maintain IE11 support
+         pageSidebar.parentNode.removeChild(pageSidebar);
+      }
+      document.getElementById('page').classList.remove("invisible");
+   })();
+</script>                                             </div>
+            <div class="clearer"></div>
+
+         </div> <!-- /mainBody -->
+
+         <div class="clearer"></div>
+      </div> <!-- /main -->
+   </div> <!-- /page -->
+   <div class="clearer"></div>
+   </div> <!-- /background -->
+         <div id="pageStats" class="hide-until-css-loaded ">
+   <div class="stats-module-title"><i class="fa fa-bar-chart-o " ></i> <strong>View Statistics:</strong></div>
+   <div class="stats-numbers-container">
+               <p><span class="statTitle">Past 24 Hours:</span> <span class="statValue">576</span></p>
+               <p><span class="statTitle">Past 7 Days:</span> <span class="statValue">3,759</span></p>
+               <p><span class="statTitle">Past 30 Days:</span> <span class="statValue">16,445</span></p>
+               <p><span class="statTitle">All Time:</span> <span class="statValue">272,346</span></p>
+         </div>
+</div>
+<div class="clearer"></div>
+   
+   
+   <footer id="footerBasic">
+   <ul class="horizontal">
+      <li><a href="/Info">About</a></li>
+      <li><a href="/Help">Help</a></li>
+               <li><a href="/Contribute">Contribute</a></li>
+                     <li><a href="/api">API</a></li>
+                        <li><a href="/Info/Licensing">Licensing</a></li>
+         </ul>
+
+   <ul class="horizontal muted" style="font-size: 0.9em;">
+
+                  
+                        
+      <li>
+         Powered by <a href="http://www.dozuki.com">Dozuki</a> -
+         2020 <a href="http://duet3d.dozuki.com" title="Duet3D">Duet3D</a>
+      </li>
+   </ul>
+</footer>
+
+
+
+            
+            
+                              
+         <img src="https://ping.dozuki.com/pixel.gif?key=duet3d%2Fwiki%2F28%2Fen" alt="" class="hidden" />
+
+            <script type='text/javascript'>
+   var App = {"setMentions":true,"objectNameSingular":"Category","which":"duet3d","isLoggedIn":false,"lang":"en","wikiid":28,"showTranslatedPlaceholder":false,"sentryToken":"fe0ff8430baa49b6a857f1325a0e55c3","sentryHost":"sentry.io","sentryProjectid":"1281569","googleOAuth2Clientid":"871380243783-3bs88o4v6eb2vs8va7pmku5s40lkshv2.apps.googleusercontent.com","googleOAuth2Domain":"","usernamePattern":"^[a-z][a-z0-9_]{2,14}$","maxMediaSize":100,"maxMediaLength":30,"videosEnabled":true,"strokeWidthMedium":5,"iconTimes":"<i  class=\"svg-icon\"   style=\"display: inline-block; width: 16px; height: 16px;\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"\/>\n    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"\/>\n<\/svg><\/i>","videoEncodings":{"MP4_720":{"column":"MP4_720","label":"Medium","encoding":"mp4","width":720,"height":480,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":true},"MP4_592":{"column":"MP4_592","label":"Low","encoding":"mp4","width":592,"height":444,"max_video_bitrate":1500,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":true},"WEBM":{"column":"WEBM","label":"Low","encoding":"webm","width":592,"height":444,"codecs":"vp8, vorbis","mime":"video\/webm","always_generate":true},"OGG":{"column":"OGG","label":"Low","encoding":"ogg","width":592,"height":444,"codecs":"theora, vorbis","mime":"video\/ogg","always_generate":true},"MP4_1920":{"column":"MP4_1920","label":"1080p","encoding":"mp4","width":1920,"height":1080,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":false},"MP4_1280":{"column":"MP4_1280","label":"720p","encoding":"mp4","width":1280,"height":720,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":false}},"users":{"chrishamm":{"username":"Christian Hammacher","unique_username":"chrishamm","image":"https:\/\/d1ulmmr4d4i8j4.cloudfront.net\/static\/images\/avatars\/User\/Dozuki\/single-avatar-2-19.thumbnail"},"cul_hab":{"username":"Lucas Bahle","unique_username":"cul_hab","image":"https:\/\/d1ulmmr4d4i8j4.cloudfront.net\/static\/images\/avatars\/User\/Dozuki\/single-avatar-2-05.thumbnail"},"sjk":{"username":"sjk","unique_username":"sjk","image":"https:\/\/d1ulmmr4d4i8j4.cloudfront.net\/static\/images\/avatars\/User\/Dozuki\/single-avatar-2-02.thumbnail"}},"FrameModules":["LoginFrameModule","ImageMenuFrameModule","MediaLibraryFrameModule","NotifyFrameModule","WatchFrameModule","EditNavFrameModule","WikiDetailsFrameModule","DozukiAdFrameModule","CommentsFrameModule","PageStatsFrameModule","ImageMarkersFrameModule","ImageCropFrameModule","ModeratorVoteFrameModule"],"isProduction":true,"locale":"en_US","isAdmin":false,"siteName":"duet3d","useSecureCookies":true,"imageSizeWidths":{"mini":56,"thumbnail":96,"140x105":140,"200x150":200,"standard":300,"440x330":440,"medium":592,"large":800,"huge":1600},"useStoreDropdown":false,"canonical":"https:\/\/duet3d.dozuki.com\/Wiki\/Gcode","page_title":"Gcode - Duet3D"};
+</script>
+   </body>
+</html>
+
