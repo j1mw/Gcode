@@ -10,7 +10,7 @@
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
   z-index: 20;
-
+background: #668c9d;
   &__inner-wrap {
     @include clearfix;
     margin-left: auto;
@@ -24,7 +24,6 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     font-family: $sans-serif-narrow;
-
     @include breakpoint($x-large) {
       max-width: $max-width;
     }
@@ -51,6 +50,7 @@
   align-self: center;
   font-weight: bold;
   // z-index: 20;
+background: #668c9d;
 }
 
 .site-subtitle {
@@ -64,7 +64,6 @@
   margin-right: 0;
   width: 100%;
   clear: both;
-
   .site-nav {
     margin-left: 0;
 
@@ -85,7 +84,6 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
-
   &--lg {
     padding-right: 2em;
     font-weight: 700;

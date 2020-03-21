@@ -1,0 +1,26 @@
+From
+https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
+
+Pre-Req's
+https://jekyllrb.com/docs/installation/
+
+xcode-select --install
+
+install bundler (sudo gem install bundler)
+
+create Gemfile
+	source 'https://rubygems.org'
+	gem 'nokogiri'
+	gem 'rack', '~> 2.0.1'
+	gem 'rspec'
+
+git add Gemfile Gemfile.lock
+
+mkdir docs 
+
+gem install -n /usr/local/bin jekyll
+bundle install
+
+bundle exec jekyll serve --source docs --destination docs/_site
+
+
