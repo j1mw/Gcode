@@ -2,7 +2,7 @@
 main:
 sidebar-sample:
   - title: "G-commands"
-    url: docs/
+    url: Docs/
     children:
       - title: "G0 & G1"
         url: Docs/G0G1
