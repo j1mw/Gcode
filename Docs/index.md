@@ -17,19 +17,19 @@ G-Codes are a widely used machine control language. They are human readable and 
 
 There are some G-Codes listed on the http://reprap.org/wiki/G-code that are not implemented in RepRapFirmware. More details can be found on the G-Codes not implemented page.
 
------
+***
 
 # Introduction #
 A typical piece of G-code sent to a machine running RepRapFirmware might look like this (The meaning of these codes (and more) is explained below on this page.)
 
-```` G10 P0 S195 R175
+```
+G10 P0 S195 R175
 T0
 G1 X100 Y100 Z0.3 F3000
 G1 X100.4 Y99.3 E0.23 F600
-...many 1000 more lines... 
-````
-
------
+..many 1000 more lines.. 
+```
+***
 
 ## G-Code Everywhere ##
 A design philosophy of RepRapFirmware is "G-code everywhere" what this means is explained in this sub section
@@ -67,12 +67,12 @@ This section explains the elements that make up a G-Code command.
 ## Comments ##
 G-Code comments begin at a semicolon, and end at the end of the line:
 
-```` 
+``` 
 T0 ; This is a comment
 G92 E0
 ''';So is this'''
 G28 
-````
+```
 Alternatively, comments can be enclosed in brackets, but they must start and end on the same line:
 
 G28 (here come the axes to be homed) X Y
