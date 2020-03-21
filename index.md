@@ -1,8 +1,11 @@
 ---
-layout: default
+layout: collection
 title: Gcode
 description: blablabla
 tags: gcode
+sidebar:
+  title: "Sample Title"
+  nav: sidebar-sample
 ---
 
 # Gcode updates #

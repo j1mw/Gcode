@@ -1,259 +1,276 @@
-<!DOCTYPE html>
-<!--[if IE 8 ]>   <html class="lt-ie10 lt-ie9 ie8" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><![endif]-->
-<!--[if IE 9 ]>   <html class="lt-ie10 ie9" lang="en" xmlns:fb="http://ogp.me/ns/fb#"><![endif]-->
-<!--[if (gte IE 10)|!(IE)]><!-->
-<html dir="ltr" lang="en">
-<!--<![endif]-->
-<head>
-	<title>Gcode - Duet3D</title>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<meta content="This page describes the RepRapFirmware supported G-codes, originally based on the information from the http://reprap.org/wiki/G-code." name="description">
-	<meta content="Gcode - Duet3D" name="title">
-	<meta content="Gcode, Dozuki" name="keywords">
-	<meta content="index, follow" name="robots">
-	<link href="https://duet3d.dozuki.com/Wiki/Gcode" id="canonical-link" rel="canonical">
-	<link href="https://duet3d.dozuki.com/Wiki/Gcode" hreflang="en" rel="alternate">
-	<link href="https://duet3d.dozuki.com/Wiki/Gcode" hreflang="x-default" rel="alternate">
-	<meta content="website" property="og:type">
-	<meta content="https://d1ulmmr4d4i8j4.cloudfront.net/static/images/default_images/WikiNoImage_592x444.jpg" property="og:image">
-	<meta content="This page describes the RepRapFirmware supported G-codes, originally based on the information from the [http://reprap.org/wiki/G-code RepRap wiki G-code page]." property="og:description">
-	<meta content="https://duet3d.dozuki.com/Wiki/Gcode" property="og:url">
-	<meta content="Gcode" property="og:title">
-	<meta content="Duet3D" property="og:site_name">
-	<meta content="jw37yaG9O4vmztqkH8xsZEeQtGHqzC3GZXfwk5xUCeM=" name="verify-v1"><!-- Aptrinsic Tag-->
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-	<script type="text/javascript">
-	        (function(n,t,a,e){var i="aptrinsic";n[i]=n[i]||function(){
-	           (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;
-	           var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-	           var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-	        })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-KS6GZPYJKDWJ-2");
-	</script>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Sales/dozuki/Shared-print-izgWd_Kjwj4VcZo-y2arTQ.css" media="print" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/blue/guide-all-y25FCLf9UuDBPcwBOuU0Gg.css" rel="stylesheet" type="text/css">
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/ifixit/font-awesome-giGvg0XddkuKqOmX56z43Q.css" rel="stylesheet" type="text/css">
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/blue/module-all-nYuGLsiP3vuudsWugh8_iA.css" rel="stylesheet" type="text/css">
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/dozuki/prosemirror-all-8GrTl6Oa1VcMzevh0SezXQ.css" rel="stylesheet" type="text/css">
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/green/Wiki-common-zuSYdnSctoCFUr-tbyuRgQ.css" rel="stylesheet" type="text/css">
-	<script>
-	</script>
-	<link href="https://d3g7ssc4oo3w7h.cloudfront.net/css/4140-sitewide-css-82963c6f367f19ccc0d8e2824bf4802785707d79" rel="stylesheet" type="text/css">
-	<script>
-	     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- begin _includes/seo.html --><title>Gcode - Site Title</title>
+<meta name="description" content="blablabla ">
 
-	     
-	                          ga('create', 'UA-30506-11', 'auto', 'duet3dCustomer');
 
-	        ga('duet3dCustomer.set', 'anonymizeIp', true);
-	        ga('duet3dCustomer.set', 'dimension1', 'duet3d');         ga('duet3dCustomer.set', 'dimension2', 'true');         ga('duet3dCustomer.set', 'dimension3', 'true');
-	              
-	                 
-	</script>
-	<script>
-	           window.addEventListener("load", function(event) {
-	                    ga('duet3dCustomer.send', 'pageview');
-	        
-	              });
-	</script>
-	<link href="https://d1ulmmr4d4i8j4.cloudfront.net/static/favicons/favicon-dozuki.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-	<script defer src="//cdn.polyfill.io/v3/polyfill.min.js?features=default,Object.entries,Number.isInteger,IntersectionObserver,NodeList.prototype.forEach,WeakSet,WeakMap,fetch">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/translations/en-translations.js?4572" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/runtime-8ZzlNrwtrsdNMEenkyqWHw.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/commons-k_T1tz0Iu_ZOx2o5QDok1g.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/guide-constants-K0TkVaLhMMQ8bKmAjDcq_A.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/shared-constants-zkTU0ADipZQfHmLp-ad9kw.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/handlebars-MrEN0QSGJE5Ix4VuUXo2IQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/shared-hbs-templates-aB-BbcU_jM4o8aN49QDD5g.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/guide-hbs-templates-QTVzeaBESTRUvk84ejclXg.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/translations-x5Lx6k7tm34ZTQgagbZ8pQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/global-6mwy0kmjxbrDuBLKs3vrkw.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/guide-all-m3JDRPWuho6gva1-dm8XSA.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/lazysizes-PI3ipgKSJWcXSmQ5G1ZQtA.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/module-all-WQVnIp4yADXMU9km0hk5dQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/announcements-banner-_GG_zYzaICNw_iTWDMrOZQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/popup-modal-MttjSx_ZJw99KObMxm7xfQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/language-dropdown-button-zM1IMYgdb_dRj_mmX3xRhw.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/header-footer-DOe5zgVpO5Tdrf6DqUIvlA.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/name-complete-H9GpqMW9qaCLHORzZMQ1vg.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/table-of-contents-3Xo2WZ2Z9q3f8btWznzidQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/error-capture-79a3-4hIEbvk0GuVgcFayA.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/page-navigation-breadcrumbs-jraV4y9Y-l9EdfLUXEz60w.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/prosemirror-vendor-jQY0lotQrhLIzTOtsLiOMQ.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Admin/prosemirror-comments-s1pLn8Q87XmQVkKi0Xsujw.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/wikipages-wiki-view-aLMbgswfF484kDfnA0i0Vg.js" type="text/javascript">
-	</script>
-	<script defer src="https://d1ulmmr4d4i8j4.cloudfront.net/Assets/Guide/save-topic-7HCYRtu0OsAEqTVzGaTCAw.js" type="text/javascript">
-	</script>
-</head>
-<body class="page-background-gradient fullWidth full-page-background responsive user-wiki" data-reactroot="">
-	<a class="skip-to-content hide-until-css-loaded" href="#content">Skip to main content</a>
-	<div id="notifications" style="display:none;">
-		<div class="close">
-			<i class="fa fa-times"></i>
-		</div>
-	</div>
-	<div class="hideUntilDarkMode" id="background">
-		<div class="react-component" data-name="Announcements" data-props="[]" data-reactroot=""></div>
-		<div class="react-component" data-name="PopupModal" data-props="[]" data-reactroot=""></div>
-		<header id="mainHeader">
-			<div class="header-container">
-				<a href="/">
-				<h1 class="textLogo" id="headerLogo">Duet3D</h1></a>
-				<div class="search-container hidden-mobile-tablet">
-					<form action="/Search" class="ignoreCSRF" method="get">
-						<input class="search-field" id="searchForm" name="query" spellcheck="false" type="text"> <button class="search-submit fa fa-search"></button>
-					</form>
-				</div>
-				<nav class="site-nav">
-					<ul>
-						<li>
-							<a class="guide" href="/Guide" id="headerGuide">Guides</a>
-						</li>
-						<li>
-							<a class="contribute" href="/Contribute" id="headerContribute">Contribute</a>
-						</li>
-					</ul>
-				</nav>
-				<section class="action-buttons">
-					<div class="login" id="loggedInNav" style="display:none">
-						<a class="username" href="#" id="profileMenuToggle"><i class="fa fa-angle-down"></i> <span id="menuUsername"></span></a>
-						<div class="dropdown-container" id="profileMenuContainer">
-							<ul class="header-dropdown" id="profileMenu">
-								<li>
-									<a href="/New">Create a Page</a>
-								</li>
-								<li>
-									<a href="/User" id="viewProfile">View Profile</a>
-								</li>
-								<li id="navLogout">
-									<a href="/Logout">Logout</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="login" id="loggedOutNav">
-						<a href="/Login" id="navLogin">Log In</a>
-					</div><a href="#menu" id="menu-button"><i class="fa fa-bars"></i></a> <a class="search-button search-toggle" href="#search" id="searchDropdownToggle"><i class="fa fa-search"></i></a>
-				</section>
-			</div>
-			<div class="mobile-nav">
-				<div class="search-container">
-					<form action="/Search" class="ignoreCSRF" method="get">
-						<input class="search-field" id="searchForm" name="query" spellcheck="false" type="text"> <button class="search-submit fa fa-search"></button>
-					</form>
-				</div>
-				<h4>Site Navigation</h4>
-				<ul>
-					<li>
-						<a class="guide" href="/Guide" id="headerGuide">Guides</a>
-					</li>
-					<li>
-						<a class="contribute" href="/Contribute" id="headerContribute">Contribute</a>
-					</li>
-				</ul>
-				<h4>Your Account</h4>
-				<ul>
-					<li>
-						<a href="/Login/register">Join</a>
-					</li>
-					<li>
-						<a href="/Login">Log In</a>
-					</li>
-				</ul>
-				<h4>Choose Language</h4>
-				<form action="https://duet3d.dozuki.com/Login" method="post">
-					<ul class="headerLanguageSelector">
-						<li class="language-option" data-langid="en">
-							<a class="emptyAnchor mobile-language-anchor" href="#"><span class="language-iso-code selected">EN</span> <span class="language-name">English</span></a>
-						</li>
-					</ul><input class='langidInput' name="langid" type="hidden" value="">
-				</form>
-			</div>
-			<div class="clearer"></div>
-		</header>
-		<div class="hide-until-css-loaded invisible" id="page">
-			<div id="page-sidebar">
-				<div class="sticky" id="sidebar-wiki-toc">
-<ul>
-   
-</ul>
-				</div>
-			</div>
-			<div id="main">
-				<div id="mainBody" itemscope itemtype="http://schema.org/WebPage">
-					<!-- MAIN BODY -->
-					<div class="fullWidth clearfix" id="bodyTop">
-						<div class="page-navigation-container js-page-navigation row">
-							<div class="column full-width js-content-dropdown-container content-dropdown-default">
-								<ul class="row page-navigation-bar">
-									<li class="page-navigation-link back-link column">
-										<a class="" href="/c/Gcodes"><i class="svg-icon" style="display: inline-block; width: 16px; height: 16px;"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<line x1="20" x2="4" y1="12" y2="12"></line>
-										<polyline points="10 18 4 12 10 6"></polyline></svg></i><span class="visible-mobile-tablet-inline">Back</span><span class="hidden-mobile-tablet">Gcodes</span></a>
-									</li>
-									<li class="page-navigation-link">
-										<a class="" href="/Wiki/Edit/Gcode" id="edit-nav-link" rel="nofollow"><span class="hidden-mobile">Edit</span><i class="svg-icon" style="display: inline-block; width: 24px; height: 24px;" title="Edit"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path d="M20,14.66V20a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4H9.34"></path>
-										<polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg></i></a>
-									</li>
-									<li class="page-navigation-link">
-										<a class="js-content-dropdown-toggle content-dropdown-toggle"><span class="hidden-mobile">Options</span><i class="svg-icon" style="display: inline-block; width: 24px; height: 24px;" title="Options"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<circle cx="12" cy="5" fill="currentColor" r="1"></circle>
-										<circle cx="12" cy="12" fill="currentColor" r="1"></circle>
-										<circle cx="12" cy="19" fill="currentColor" r="1"></circle></svg></i></a>
-									</li>
-								</ul>
-								<ul class="content-dropdown-list">
-									<li class="page-navigation-link">
-										<a class="" href="/Wiki/History/Gcode" id="history-nav-link" rel="nofollow"><i class="fa fa-history"></i> History</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="statuses"></div>
-					<div id="banner">
-						<div class="statuses"></div>
-					</div>
-					<div id="topContent">
-						<div class="hidden-desktop" id="mobile-wiki-toc">
-							<div class="react-component" data-name="Toc" data-props="[]" data-reactroot=""></div>
-						</div>
-					</div>
-					<div id="contentFloat">
-						<div id="content">
-							<div class="container articleContainer wiki">
-								<h1 class="pageTitle wikiTitle originalText bordered">Gcode</h1>
-								<h1 id="gcode-updates">Gcode updates</h1>
+  <meta name="author" content="Your Name">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Site Title">
+<meta property="og:title" content="Gcode">
+<meta property="og:url" content="http://localhost:4000/">
+
+
+  <meta property="og:description" content="blablabla ">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Your Name",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Site Title Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--collection">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Site Title
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  <h3 class="nav__title" style="padding-left: 0;">Sample Title</h3>
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Parent Page A</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/" class="active">Child Page A1</a></li>
+          
+            <li><a href="/" class="active">Child Page A2</a></li>
+          
+            <li><a href="/" class="active">Child Page A3</a></li>
+          
+            <li><a href="/" class="active">Child Page A4</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Parent Page B</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/" class="active">Child Page B1</a></li>
+          
+            <li><a href="/" class="active">Child Page B2</a></li>
+          
+            <li><a href="/" class="active">Child Page B3</a></li>
+          
+            <li><a href="/" class="active">Child Page B4</a></li>
+          
+            <li><a href="/" class="active">Child Page B5</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Parent Page C</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/" class="active">Child Page C1</a></li>
+          
+            <li><a href="/" class="active">Child Page C2</a></li>
+          
+            <li><a href="/" class="active">Child Page C3</a></li>
+          
+            <li><a href="/" class="active">Child Page C4</a></li>
+          
+            <li><a href="/" class="active">Child Page C5</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Parent Page D</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/" class="active">Child Page D1</a></li>
+          
+            <li><a href="/" class="active">Child Page D2</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"><span class="nav__sub-title">Quick-Start Guide</span></a>
+        
+
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Gcode</h1>
+    
+    <h1 id="gcode-updates">Gcode updates</h1>
 <p>This page describes the RepRapFirmware supported G-codes, originally based on the information from the [http://reprap.org/wiki/G-code RepRap wiki G-code page].</p>
 
 <p>This page describes the RepRapFirmware supported G-codes, originally based on the information from the http://reprap.org/wiki/G-code.</p>
@@ -423,64 +440,67 @@ and the value is appended as a decimal integer to the command after the * charac
 <p>When an unbuffered command is received it is stored, but it is not acknowledged to the host until the buffer is exhausted and then the command has been executed.</p>
 
 
-							</div>
-						</div>
-						<script type="text/javascript">
-						(function() {
-						var headings = document.querySelectorAll('#mainBody [id^="Section_"]');
-						var pageSidebar = document.getElementById('page-sidebar');
-						if (pageSidebar && headings.length <= 1) {
-						   // Must remove elements this way to maintain IE11 support
-						   pageSidebar.parentNode.removeChild(pageSidebar);
-						}
-						document.getElementById('page').classList.remove("invisible");
-						})();
-						</script>
-					</div>
-					<div class="clearer"></div>
-				</div><!-- /mainBody -->
-				<div class="clearer"></div>
-			</div><!-- /main -->
-		</div><!-- /page -->
-		<div class="clearer"></div>
-	</div><!-- /background -->
-	<div class="hide-until-css-loaded" id="pageStats">
-		<div class="stats-module-title">
-			<i class="fa fa-bar-chart-o"></i> <strong>View Statistics:</strong>
-		</div>
-		<div class="stats-numbers-container">
-			<p><span class="statTitle">Past 24 Hours:</span> <span class="statValue">580</span></p>
-			<p><span class="statTitle">Past 7 Days:</span> <span class="statValue">3,808</span></p>
-			<p><span class="statTitle">Past 30 Days:</span> <span class="statValue">16,555</span></p>
-			<p><span class="statTitle">All Time:</span> <span class="statValue">272,395</span></p>
-		</div>
-	</div>
-	<div class="clearer"></div>
-	<footer id="footerBasic">
-		<ul class="horizontal">
-			<li>
-				<a href="/Info">About</a>
-			</li>
-			<li>
-				<a href="/Help">Help</a>
-			</li>
-			<li>
-				<a href="/Contribute">Contribute</a>
-			</li>
-			<li>
-				<a href="/api">API</a>
-			</li>
-			<li>
-				<a href="/Info/Licensing">Licensing</a>
-			</li>
-		</ul>
-		<ul class="horizontal muted" style="font-size: 0.9em;">
-			<li>Powered by <a href="http://www.dozuki.com">Dozuki</a> - 2020 <a href="http://duet3d.dozuki.com" title="Duet3D">Duet3D</a>
-			</li>
-		</ul>
-	</footer><img alt="" class="hidden" src="https://ping.dozuki.com/pixel.gif?key=duet3d%2Fwiki%2F28%2Fen"> 
-	<script type='text/javascript'>
-	  var App = {"setMentions":true,"objectNameSingular":"Category","which":"duet3d","isLoggedIn":false,"lang":"en","wikiid":28,"showTranslatedPlaceholder":false,"sentryToken":"fe0ff8430baa49b6a857f1325a0e55c3","sentryHost":"sentry.io","sentryProjectid":"1281569","googleOAuth2Clientid":"871380243783-3bs88o4v6eb2vs8va7pmku5s40lkshv2.apps.googleusercontent.com","googleOAuth2Domain":"","usernamePattern":"^[a-z][a-z0-9_]{2,14}$","maxMediaSize":100,"maxMediaLength":30,"videosEnabled":true,"strokeWidthMedium":5,"iconTimes":"<i  class=\"svg-icon\"   style=\"display: inline-block; width: 16px; height: 16px;\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"\/>\n    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"\/>\n<\/svg><\/i>","videoEncodings":{"MP4_720":{"column":"MP4_720","label":"Medium","encoding":"mp4","width":720,"height":480,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":true},"MP4_592":{"column":"MP4_592","label":"Low","encoding":"mp4","width":592,"height":444,"max_video_bitrate":1500,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":true},"WEBM":{"column":"WEBM","label":"Low","encoding":"webm","width":592,"height":444,"codecs":"vp8, vorbis","mime":"video\/webm","always_generate":true},"OGG":{"column":"OGG","label":"Low","encoding":"ogg","width":592,"height":444,"codecs":"theora, vorbis","mime":"video\/ogg","always_generate":true},"MP4_1920":{"column":"MP4_1920","label":"1080p","encoding":"mp4","width":1920,"height":1080,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":false},"MP4_1280":{"column":"MP4_1280","label":"720p","encoding":"mp4","width":1280,"height":720,"codecs":"avc1.42E01E, mp4a.40.2","mime":"video\/mp4","always_generate":false}},"users":{"chrishamm":{"username":"Christian Hammacher","unique_username":"chrishamm","image":"https:\/\/d1ulmmr4d4i8j4.cloudfront.net\/static\/images\/avatars\/User\/Dozuki\/single-avatar-2-19.thumbnail"},"cul_hab":{"username":"Lucas Bahle","unique_username":"cul_hab","image":"https:\/\/d1ulmmr4d4i8j4.cloudfront.net\/static\/images\/avatars\/User\/Dozuki\/single-avatar-2-05.thumbnail"},"sjk":{"username":"sjk","unique_username":"sjk","image":"https:\/\/d1ulmmr4d4i8j4.cloudfront.net\/static\/images\/avatars\/User\/Dozuki\/single-avatar-2-02.thumbnail"}},"FrameModules":["LoginFrameModule","ImageMenuFrameModule","MediaLibraryFrameModule","NotifyFrameModule","WatchFrameModule","EditNavFrameModule","WikiDetailsFrameModule","DozukiAdFrameModule","CommentsFrameModule","PageStatsFrameModule","ImageMarkersFrameModule","ImageCropFrameModule","ModeratorVoteFrameModule"],"isProduction":true,"locale":"en_US","isAdmin":false,"siteName":"duet3d","useSecureCookies":true,"imageSizeWidths":{"mini":56,"thumbnail":96,"140x105":140,"200x150":200,"standard":300,"440x330":440,"medium":592,"large":800,"huge":1600},"useStoreDropdown":false,"canonical":"https:\/\/duet3d.dozuki.com\/Wiki\/Gcode","page_title":"Gcode - Duet3D"};
-	</script>
-</body>
+
+<div class="entries-">
+  
+
+
+</div>
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Your Name. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
 </html>
