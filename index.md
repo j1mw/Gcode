@@ -18,7 +18,6 @@ G-Codes are a widely used machine control language. They are human readable and 
 There are some G-Codes listed on the http://reprap.org/wiki/G-code that are not implemented in RepRapFirmware. More details can be found on the G-Codes not implemented page.
 
 -----
-### H3 test ###
 
 # Introduction #
 A typical piece of G-code sent to a machine running RepRapFirmware might look like this (The meaning of these codes (and more) is explained below on this page.)
