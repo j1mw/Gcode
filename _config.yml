@@ -1,8 +1,15 @@
-remote_theme: "mmistakes/minimal-mistakes@4.19.0"
-
 title: "My Awesome Site"
 description: "[A short description of your site's purpose]"
 
+# Set default front matter values
+defaults:
+  # _docs
+  - scope:
+      path: ""
+      type: docs
+    values:
+      sidebar:
+        nav: "docs"
 
 # Plugins (previously gems:)
 plugins:
