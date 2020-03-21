@@ -1,7 +1,7 @@
 # main links
 main:
 sidebar-sample:
-  - title: "Parent Page A"
+  - title: "G-commands"
     url: docs/
     children:
       - title: "G0 & G1"
@@ -24,6 +24,26 @@ sidebar-sample:
         url: Docs/G28
       - title: "G29"
         url: Docs/G29
+      - title: "G30"
+        url: Docs/G30
+      - title: "G31"
+        url: Docs/G31
+      - title: "G32"
+        url: Docs/G32
+      - title: "G38.2 to G38.5"
+        url: Docs/G38
+      - title: "G53"
+        url: Docs/G53
+      - title: "G54 to 59.3"
+        url: Docs/G54G59
+      - title: "G60"
+        url: Docs/G60
+      - title: "G90"
+        url: Docs/G90
+      - title: "G91"
+        url: Docs/G91
+      - title: "G92"
+        url: Docs/G92
   - title: "Parent Page B"
     children:
       - title: "Child Page B1"
