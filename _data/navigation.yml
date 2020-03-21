@@ -2,15 +2,28 @@
 main:
 sidebar-sample:
   - title: "Parent Page A"
+    url: docs/
     children:
-      - title: "Child Page A1"
-        url: /
-      - title: "Child Page A2"
-        url: /
-      - title: "Child Page A3"
-        url: /
-      - title: "Child Page A4"
-        url: /
+      - title: "G0 & G1"
+        url: docs/G0G1
+      - title: "G2 & G3"
+        url: docs/G2G3
+      - title: "G4"
+        url: docs/G4
+      - title: "G10"
+        url: docs/G10
+      - title: "G11"
+        url: docs/G11
+      - title: "G17"
+        url: docs/G17
+      - title: "G20"
+        url: docs/G20
+      - title: "G21"
+        url: docs/G21
+      - title: "G28"
+        url: docs/G28
+      - title: "G29"
+        url: docs/G29
   - title: "Parent Page B"
     children:
       - title: "Child Page B1"
