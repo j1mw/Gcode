@@ -1,6 +1,5 @@
 ---
 layout: archive
-title: Gcode
 description: blablabla
 tags: gcode
 sidebar:
