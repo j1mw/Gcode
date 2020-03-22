@@ -13,3 +13,17 @@ allowed-tags:
   - news
   - troubleshooting
   - mobile
+# GCode
+  - G-Commands
+  - M-Commands
+# Categories
+  - General
+  - Network
+  - Drives
+  - EndStops
+  - Zprobe
+  - Axis
+  - Heaters
+  - Fans
+  - Tools
+  - Custom
