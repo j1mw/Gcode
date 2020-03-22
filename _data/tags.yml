@@ -16,6 +16,8 @@ allowed-tags:
 # GCode
   - G-Commands
   - M-Commands
+  - Order-Dependent 
+  - Deprecated
 # Categories
   - General
   - Network
