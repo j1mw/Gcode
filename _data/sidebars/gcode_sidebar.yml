@@ -40,3 +40,7 @@ entries:
         - title: Axis Gcodes
           url: /tag_axis.html
           output: web
+
+        - title: Network Gcodes
+          url: /tag_network.html
+          output: web
