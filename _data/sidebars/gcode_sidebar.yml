@@ -98,13 +98,36 @@ entries:
       url: /M0.html
       output: web, pdf
       type: homepage
-   
+
+    - title: M1
+      url: /M1.html
+      output: web, pdf
+      type: homepage
+
+    - title: M3
+      url: /M3.html
+      output: web, pdf
+      type: homepage
+
+    - title: M4
+      url: /M4.html
+      output: web, pdf
+      type: homepage   
+
+    - title: M5
+      url: /M5.html
+      output: web, pdf
+      type: homepage
+
   - title: Search
     output: web
     folderitems:
 
-        - title: G-Commands pages
+        - title: G-Commands Summary
           url: /tag_gcommands.html
           output: web
 
+        - title: M-Commands Summary
+          url: /tag_mcommands.html
+          output: web
 
