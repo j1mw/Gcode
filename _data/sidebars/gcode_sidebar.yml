@@ -5,123 +5,9 @@ entries:
   product: GCode Dictionary
   folders:
 
-  - title: G-Commands
-    output: web, pdf
-    folderitems:
-
-    - title: G0 and G1
-      url: /G0G1.html
-      output: web, pdf
-      type: homepage
-
-    - title: G2 and G3
-      url: /G2G3.html
-      output: web, pdf
-
-    - title: G4
-      url: /G4.html
-      output: web, pdf
-
-    - title: G10
-      url: /G10.html
-      output: web, pdf
-
-    - title: G11
-      url: /G11.html
-      output: web, pdf
-
-    - title: G17
-      url: /G17.html
-      output: web, pdf
-
-    - title: G20
-      url: /G20.html
-      output: web, pdf
-
-    - title: G21
-      url: /G21.html
-      output: web, pdf
-
-    - title: G28
-      url: /G28.html
-      output: web, pdf
-
-    - title: G29
-      url: /G29.html
-      output: web, pdf
-
-    - title: G30
-      url: /G30.html
-      output: web, pdf
-
-    - title: G31
-      url: /G31.html
-      output: web, pdf
-
-    - title: G32
-      url: /G32.html
-      output: web, pdf
-
-    - title: G38.2 to G38.5
-      url: /G38.html
-      output: web, pdf
-
-    - title: G53
-      url: /G53.html
-      output: web, pdf
-
-    - title: G54 to 59.3
-      url: /G54G59.html
-      output: web, pdf
-
-    - title: G60
-      url: /G60.html
-      output: web, pdf
-
-    - title: G90
-      url: /G90.html
-      output: web, pdf
-
-    - title: G91
-      url: /G91.html
-      output: web, pdf
-
-    - title: G92
-      url: /G92.html
-      output: web, pdf
-  
-  - title: M-Commands
-    output: web, pdf
-    folderitems:
-
-    - title: M0
-      url: /M0.html
-      output: web, pdf
-      type: homepage
-
-    - title: M1
-      url: /M1.html
-      output: web, pdf
-      type: homepage
-
-    - title: M3
-      url: /M3.html
-      output: web, pdf
-      type: homepage
-
-    - title: M4
-      url: /M4.html
-      output: web, pdf
-      type: homepage   
-
-    - title: M5
-      url: /M5.html
-      output: web, pdf
-      type: homepage
-
-  - title: Search
-    output: web
-    folderitems:
+    - title: Full List
+      output: web
+      folderitems:
 
         - title: G-Commands Summary
           url: /tag_gcommands.html
@@ -131,3 +17,26 @@ entries:
           url: /tag_mcommands.html
           output: web
 
+    - title: Categories
+      output: web
+      folderitems:
+
+        - title: Tools GCodes
+          url: /tag_tools.html
+          output: web
+
+        - title: Drives Gcodes
+          url: /tag_drives.html
+          output: web
+
+        - title: Heaters Gcodes
+          url: /tag_heaters.html
+          output: web
+
+        - title: General Gcodes
+          url: /tag_general.html
+          output: web
+
+        - title: Axis Gcodes
+          url: /tag_axis.html
+          output: web
