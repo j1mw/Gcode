@@ -44,3 +44,8 @@ entries:
         - title: Network Gcodes
           url: /tag_network.html
           output: web
+        
+        - title: Custom Gcodes
+          url: /tag_custom.html
+          output: web
+
