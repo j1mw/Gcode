@@ -1,6 +1,6 @@
 ---
 title: "Gcode Dictionary" 
-tags: [G-Commands]
+tags: []
 keywords: notes, tips, cautions, warnings, admonitions
 last_updated: July 3, 2016
 summary: "ToDo Add Summary"
