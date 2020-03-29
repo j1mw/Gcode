@@ -17,6 +17,10 @@ entries:
           url: /tag_mcommands.html
           output: web
 
+        - title: T-Commands Summary
+          url: /tag_tcommands.html
+          output: web
+
     - title: Categories
       output: web
       folderitems:
