@@ -1,4 +1,5 @@
 import re
+import datetime
 
 # Get a list of G/M code heading from file using REGEX 
 inFile = open('source.txt').read()
@@ -37,7 +38,6 @@ for i in range(1, len(headings)):
 		codeName = codeName[:-1]	
 		codes = codeName.replace(' ','').split('&')
 		codeString = ''.join(map(str, codes))
-		print(codeString)
 		fileName = codeString + ".md"
 		permaLink = codeString + ".html"
 	else:
@@ -68,6 +68,10 @@ for i in range(1, len(headings)):
 
 	# Parse the sectionText based on MD
 	# ---------------------------------
+
+	sectionText = sectionText.replace("== G-commands ==", '')
+	sectionText = sectionText.replace("== M-commands ==",'')
+
 	sectionText = sectionText.replace("\'\'\'Usage\'\'\'", '## Usage')
 	sectionText = sectionText.replace("\'\'\'Examples\'\'\'", '## Examples')
 	sectionText = sectionText.replace("\'\'\'Example\'\'\'", '## Examples')
@@ -82,19 +86,22 @@ for i in range(1, len(headings)):
 	sectionText = sectionText.replace("\'\'\'", "`")
 	sectionText = sectionText.replace("^^1^^", "<sub>1</sub>")
 	sectionText = sectionText.replace("^^2^^", "<sub>2</sub>")
+	sectionText = sectionText.replace("[code]", "```\n")
+	sectionText = sectionText.replace("[/code]", "\n```")
+	sectionText = sectionText.replace("===== ", "## ")
+	sectionText = sectionText.replace("=====", "")
+
 
 	# Replace section links with permalinks
 	# -------------------------------------
 	if re.search('\[\[Gcode#Section', sectionText, re.IGNORECASE):
-		print("editing " + codeName)
 		try: 
 			linkText = re.search('\[\[Gcode#Section(.*?)]]' , sectionText).group(0)	
 			linkCode = re.split('_' , linkText)	
-			print(linkCode[1])
-			pageLink = "(" + linkCode[1] + ".html)"
+			pageLink = "[" + linkCode[1] + "](" + linkCode[1] + ".html)"
 			sectionText = sectionText.replace(linkText, pageLink)
 		except:
-			print("ignore")	
+			print("ignore" )	
 	# Some logic around tags
 	# ----------------------
 	tags = "["
@@ -138,7 +145,7 @@ for i in range(1, len(headings)):
 	frontMatter.append("title: " + codeName + "\n")
 	frontMatter.append("tags: " + tags + " \n" )
 	frontMatter.append("keywords: beta \n" )
-	frontMatter.append("last_updated: never \n" )
+	frontMatter.append("last_updated: " + datetime.date.today().strftime("%B %d, %Y") + " \n" )
 	frontMatter.append("summary: " + headerText + "\n")
 	frontMatter.append("permalink: " + permaLink + "\n")
 	frontMatter.append("toc: false \n")
