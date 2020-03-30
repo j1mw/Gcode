@@ -108,7 +108,7 @@ def processSection(headings):
 		sectionText = sectionText.replace("=====", "")	
 
 		# try and wrap some of the commands. if start with M|G and ;
-		sectionText = re.sub(r"/* [/M|G][0-9]+.*[/;]", " `\g<0> ` ", sectionText)
+		sectionText = re.sub(r"/* [/M|G][0-9]+.*[/;]", " ' \g<0> '", sectionText)
 		
 
 		# Replace section links with permalinks
