@@ -116,7 +116,6 @@ def processSection(headings):
 
 		linkMatch =  re.search(r"(\[\[Gcode#Section_([M|G|T]\d*)(_)\S*[M|G|T]\d*\]\])", sectionText)
 		while linkMatch is not None:
-			print("found")
 			sectionText = re.sub(r"(\[\[Gcode#Section_([M|G|T]\d*)(_)\S*[M|G|T]\d*\]\])", r"[\g<2>](\g<2>).html", sectionText)
 			linkMatch =  re.search(r"(\[\[Gcode#Section_([M|G|T]\d*)(_)\S*[M|G|T]\d*\]\])", sectionText)
 
@@ -128,8 +127,10 @@ def processSection(headings):
 			tableMD = ""
 			for tRow in tPattern.finditer(tableText.group()):
 				tRowData = tRow.group()
+				if re.search(r"<<[^>]*>>",tRowData):
+					tRowData = re.sub(r"<<[^>]*>>", "", tRowData)
+					#tRowData = re.sub(r"<<(colspan=\")(\d+)[^>]*>>", " <td colspan=\g<2>>", tRowData)
 				if tRowData.startswith("|!"):
-					print("found2")
 					tRowData = tRowData.replace("! ", "")
 				if tRowData.startswith('{table'):
 					rowText = ""
@@ -147,8 +148,6 @@ def processSection(headings):
 					rowText = rowText.replace("!", "*")
 	
 				rowText = rowText + tRowData.rstrip()
-				
-			print(tableMD)
 			sectionText = sectionText.replace(tableText.group(), tableMD)
 
 		# Some logic around tags
