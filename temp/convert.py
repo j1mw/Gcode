@@ -108,19 +108,49 @@ def processSection(headings):
 		sectionText = sectionText.replace("=====", "")	
 
 		# try and wrap some of the commands. if start with M|G and ;
-		sectionText = re.sub(r"/* [/M|G][0-9]+.*[/;]", " `\g<0> ` ", sectionText)
+		sectionText = re.sub(r"/* [/M|G|T][0-9]+.*[/ ;]", " `\g<0> ` ", sectionText)
 		
 
-		# Replace section links with permalinks
-		# -------------------------------------
-		if re.search('\[\[Gcode#Section', sectionText, re.IGNORECASE):
-			try: 
-				linkText = re.search('\[\[Gcode#Section(.*?)]]' , sectionText).group(0)	
-				linkCode = re.split('_' , linkText)	
-				pageLink = "[" + linkCode[1] + "](" + linkCode[1] + ".html)"
-				sectionText = sectionText.replace(linkText, pageLink)
-			except:
-				print("ignore" )	
+		# Replace section links with permalinks (and may be mulitple..
+		# ------------------------------------------------------------
+
+		linkMatch =  re.search(r"(\[\[Gcode#Section_([M|G|T]\d*)(_)\S*[M|G|T]\d*\]\])", sectionText)
+		while linkMatch is not None:
+			print("found")
+			sectionText = re.sub(r"(\[\[Gcode#Section_([M|G|T]\d*)(_)\S*[M|G|T]\d*\]\])", r"[\g<2>](\g<2>).html", sectionText)
+			linkMatch =  re.search(r"(\[\[Gcode#Section_([M|G|T]\d*)(_)\S*[M|G|T]\d*\]\])", sectionText)
+
+
+		# try and convert the tables
+		tPattern = re.compile(r'((.*)\n)')	
+		tableText = re.search(r"({table)(.|\n)*(})", sectionText)
+		if tableText is not None:	
+			tableMD = ""
+			for tRow in tPattern.finditer(tableText.group()):
+				tRowData = tRow.group()
+				if tRowData.startswith("|!"):
+					print("found2")
+					tRowData = tRowData.replace("! ", "")
+				if tRowData.startswith('{table'):
+					rowText = ""
+					continue 
+				if tRowData.startswith('|width'):
+					continue
+				if tRowData.startswith('|format'):
+					continue
+				if tRowData.startswith('|--'):
+					rowText = rowText + "|\n"	
+					tableMD = tableMD + rowText
+					rowText = ""	
+					continue
+				if tRowData.startswith('!'):
+					rowText = rowText.replace("!", "*")
+	
+				rowText = rowText + tRowData.rstrip()
+				
+			print(tableMD)
+			sectionText = sectionText.replace(tableText.group(), tableMD)
+
 		# Some logic around tags
 		# ----------------------
 		tags = "["
