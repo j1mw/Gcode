@@ -18,7 +18,6 @@ CUSTOM = []
 CODES = []
 
 headings = []
-
 for match in header.finditer(inFile):
 	s=match.start()
 	e=match.end()
@@ -29,6 +28,13 @@ tHeadings = []
 tHeadings.append("== T: Select Tool ==")
 tHeadings.append("== G-Code Background Information ==")
 
+# Special case for Index
+iHeadings = []
+iHeadings.append("This page describes the RepRapFirmware")
+iHeadings.append("== G-commands")
+
+
+
 def processSection(headings):
 
 	# Loop through headings and capture text between 
@@ -38,9 +44,14 @@ def processSection(headings):
 		# Extract fileName 
 		# ----------------
 
+		# Is heading an index?
+		if re.search("This page describes the RepRapFirmware", headings[i-1]):
+			fileName = "index.md"
+			permaLink = "index.html"
+			headerText = "Gcode"
+			codeName = "Gcode"
 		# Is heading a combination (G0/G1 and G2/G3) ?
-		# --------------------------------------------
-		if re.search("T:", headings[i -1]):
+		elif re.search("T:", headings[i -1]):
 			fileName = "T.md"
 			permaLink = "T.html"
 			headerText = "Select Tool"
@@ -76,7 +87,8 @@ def processSection(headings):
 		sectionStart = inFile.index(headings[i - 1])
 		sectionEnd = inFile.index(headings[i])
 
-		sectionStart = sectionStart + len(headings[i - 1])
+		if codeName is not "Gcode":
+			sectionStart = sectionStart + len(headings[i - 1])
 		sectionText = inFile[sectionStart:sectionEnd]
 
 
@@ -106,6 +118,12 @@ def processSection(headings):
 		sectionText = sectionText.replace("[/code]", "\n```")
 		sectionText = sectionText.replace("===== ", "## ")
 		sectionText = sectionText.replace("=====", "")	
+
+		# Tidy up Index page
+		sectionText = sectionText.replace("====", "####")
+		sectionText = sectionText.replace("===", "###")
+		sectionText = sectionText.replace("==", "##")
+
 
 		# try and wrap some of the commands. if start with M|G and ;
 		sectionText = re.sub(r"/* [/M|G|T][0-9]+.*[/ ;]", " `\g<0> ` ", sectionText)
@@ -153,7 +171,9 @@ def processSection(headings):
 		# Some logic around tags
 		# ----------------------
 		tags = "["
-		if codeName.startswith("M"):
+		if codeName is "Gcode":
+			tags = tags
+		elif codeName.startswith("M"):
 			tags = tags + "M-Commands"
 		elif codeName.startswith("G"):	
 			tags = tags + "G-Commands"
@@ -195,7 +215,8 @@ def processSection(headings):
 		frontMatter.append("tags: " + tags + " \n" )
 		frontMatter.append("keywords: beta \n" )
 		frontMatter.append("last_updated: " + datetime.date.today().strftime("%B %d, %Y") + " \n" )
-		frontMatter.append("summary: " + headerText + "\n")
+		if codeName is not "Gcode":
+			frontMatter.append("summary: " + headerText + "\n")
 		frontMatter.append("permalink: " + permaLink + "\n")
 		frontMatter.append("toc: false \n")
 	
@@ -210,6 +231,6 @@ def processSection(headings):
 
 			myFile.write(sectionText)
 	
-
+processSection(iHeadings)
 processSection(headings)
 processSection(tHeadings)
