@@ -1,9 +1,6 @@
 import re
 import datetime
 
-# Get a list of G/M code heading from file using REGEX 
-inFile = open('source.txt').read()
-header = re.compile('==== [M|G][0-9].*:.*')
 NETWORKS = ["M552", "M586", "M540", "M550", "M553", "M554", "M586", "M587", "M588", "M589"]
 GENERAL = ["G90", "M83", "M550"]
 DRIVES = ["M569", "M584", "M92", "M566", "M203" "M201", "M906", "M84" ]
@@ -17,11 +14,15 @@ CUSTOM = []
 
 CODES = []
 
+# Get a list of G/M code heading from file using REGEX 
+inFile = open('source.txt').read()
+header = re.compile('==== [M|G][0-9].*:.*')
 headings = []
 for match in header.finditer(inFile):
 	s=match.start()
 	e=match.end()
 	headings.append(inFile[s:e].replace('\n',''))
+headings.append("== T: Select Tool ==")
 
 # Special case for T-code
 tHeadings = []
@@ -39,8 +40,11 @@ def processSection(headings):
 
 	# Loop through headings and capture text between 
 
+	counter = 0
 	#loop from second to n
 	for i in range(1, len(headings)):
+		print(headings[i-1])
+		counter = counter + 1
 		# Extract fileName 
 		# ----------------
 
@@ -80,7 +84,7 @@ def processSection(headings):
 				fileName = codeName + ".md"
 				permaLink = codeName + ".html"
 
-		
+		print(codeName)		
 		
 		# Extract the sectionText for each command 
 		# ----------------------------------------
@@ -211,6 +215,7 @@ def processSection(headings):
 		# Write the Jekyll theme front matter
 		# -----------------------------------
 		frontMatter = ["---\n"]
+		frontMatter.append("counter: " + str(counter) + "\n" )
 		frontMatter.append("title: " + codeName + "\n")
 		frontMatter.append("tags: " + tags + " \n" )
 		frontMatter.append("keywords: beta \n" )
