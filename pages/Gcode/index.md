@@ -1,8 +1,9 @@
 ---
+counter: 1
 title: Gcode
 tags: [] 
 keywords: beta 
-last_updated: April 04, 2020 
+last_updated: April 06, 2020 
 permalink: index.html
 toc: false 
 ---
@@ -162,9 +163,7 @@ Example: N123 [...G Code in here...] *71
 
 The firmware checks the line number and the checksum.
 
-You can leave both of these out - RepRap will still work, but it won't do checking. You have to have both or neither though.
-
-If only one appears, it produces an error.
+You can leave both of these out - RepRap will still work, but it won't do checking. You have to have both or neither though. If only one appears, it produces an error. See this thread for an example of usage, in this case sending g-code to the PanelDue port without disabling cheksums: https://forum.duet3d.com/topic/15134/how-to-disable-paneldue-cheksums-without-usb-dwc-sd-card
 
 The checksum "cs" for a G-Code string "cmd" (including its line number) is computed by exor-ing the bytes in the string up to and not including the * character as follows:
 
