@@ -30,6 +30,10 @@ layout: default
 
 <div class="post-content">
 
+   {% if page.available_since %}
+    <div class="available">{{page.available_since}}</div>
+   {% endif %}
+
    {% if page.summary %}
     <div class="summary">{{page.summary}}</div>
    {% endif %}

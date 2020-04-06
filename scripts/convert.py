@@ -216,6 +216,7 @@ def processSection(headings):
 		# -----------------------------------
 		frontMatter = ["---\n"]
 		frontMatter.append("counter: " + str(counter) + "\n" )
+		frontMatter.append("available_since: " + "version_999" + "\n" )
 		frontMatter.append("title: " + codeName + "\n")
 		frontMatter.append("tags: " + tags + " \n" )
 		frontMatter.append("keywords: beta \n" )

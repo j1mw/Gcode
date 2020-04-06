@@ -571,6 +571,20 @@ a[data-toggle] {
     color: #040073;
 }
 
+.available {
+    font-size:120%;
+    color: #808080;
+    margin:20px 0px 20px 0px;
+    border-left: 5px solid #555555;
+    padding-left: 10px;
+
+}
+
+.available:before {
+    content: "Available Since: ";
+    font-weight: bold;
+}
+
 .summary {
     font-size:120%;
     color: #808080;
