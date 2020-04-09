@@ -4,7 +4,7 @@ available_since: version_999
 title: T
 tags: [T-Commands] 
 keywords: beta 
-last_updated: April 07, 2020 
+last_updated: April 10, 2020 
 summary: Select Tool
 permalink: T.html
 toc: false 

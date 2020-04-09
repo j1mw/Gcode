@@ -1,3 +1,10 @@
+# Crude Python script to convert RRF Dozuki wiki into individual MD files per code
+# hard-coded for source.txt as input
+# for use with github pages, Jekyll theme based on tomjoht - documentation-theme-jekyll
+# Aim is ~80% converted. Assumption that manual polish would be required per page
+
+
+
 import re
 import datetime
 
